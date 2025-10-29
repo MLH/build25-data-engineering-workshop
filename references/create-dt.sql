@@ -26,6 +26,7 @@ create or replace dynamic table stg_orders_dt
     target_lag=downstream
     warehouse=compute_wh
     as select
+        custid as customer_id,
         purchase:"prodid"::number(5) as product_id,
         purchase:"purchase_amount"::float(10) as order_price,
         purchase:"quantity"::number(5) as quantity,
